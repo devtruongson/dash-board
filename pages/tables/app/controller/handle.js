@@ -227,6 +227,8 @@ export const handleSubmit = (e, ModalRenderBody, type = "submit") => {
       handleDumpDataUpdate(customer);
     }
   }
+
+  handleReloadUser();
 };
 
 const handleGetElementByID = (ID = []) => {
@@ -456,7 +458,12 @@ function handleChangeSelectSort(e) {
   }
 }
 
-let userSortName = [...listPerson.persons];
+let userSortName = [];
+
+function handleReloadUser() {
+  userSortName = [...listPerson.persons];
+}
+
 function handleChangeSelectSortName(e) {
   if (e.target.value === "all") {
     handleRenderTable(userSortName);
