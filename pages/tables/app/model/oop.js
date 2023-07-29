@@ -85,6 +85,24 @@ export class ListPerson {
     }
   }
 
+  sapXepTheoTenNguoc() {
+    this.persons.sort((a, b) => {
+      const tenA = a.hoTen.trim();
+      const tenB = b.hoTen.trim();
+
+      const wordsA = tenA.split(" ").filter((word) => word !== "");
+      const wordsB = tenB.split(" ").filter((word) => word !== "");
+
+      const lastWordA = wordsA[wordsA.length - 1];
+      const lastWordB = wordsB[wordsB.length - 1];
+
+      const firstCharA = lastWordA.charAt(0).toLowerCase();
+      const firstCharB = lastWordB.charAt(0).toLowerCase();
+
+      return firstCharB.localeCompare(firstCharA);
+    });
+  }
+
   sapXepTheoTen() {
     this.persons.sort((a, b) => {
       const tenA = a.hoTen.trim();

@@ -466,7 +466,7 @@ function handleReloadUser() {
 
 function handleChangeSelectSortName(e) {
   if (e.target.value === "all") {
-    handleRenderTable(userSortName);
+    handleRenderTable(listPerson.sapXepTheoTenNguoc());
   } else {
     handleRenderTable(listPerson.sapXepTheoTen());
   }
