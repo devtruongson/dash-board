@@ -79,7 +79,6 @@ export class ListPerson {
     const index = this.persons.findIndex((p) => {
       return p.ma == person.ma;
     });
-    console.log(index);
     if (index !== -1) {
       this.persons[index] = person;
       this.luuLocalStorage();
@@ -91,10 +90,16 @@ export class ListPerson {
       const tenA = a.hoTen.trim();
       const tenB = b.hoTen.trim();
 
-      const lastCharA = tenA.charAt(tenA.length - 1);
-      const lastCharB = tenB.charAt(tenB.length - 1);
+      const wordsA = tenA.split(" ").filter((word) => word !== "");
+      const wordsB = tenB.split(" ").filter((word) => word !== "");
 
-      return lastCharA.localeCompare(lastCharB);
+      const lastWordA = wordsA[wordsA.length - 1];
+      const lastWordB = wordsB[wordsB.length - 1];
+
+      const firstCharA = lastWordA.charAt(0).toLowerCase();
+      const firstCharB = lastWordB.charAt(0).toLowerCase();
+
+      return firstCharA.localeCompare(firstCharB);
     });
   }
 
